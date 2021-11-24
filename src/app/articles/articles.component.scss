@@ -1,0 +1,17 @@
+.article-content {
+  margin: 20px;
+  .author {
+    color: teal;
+    font-size: large;
+    margin: 5px 0;
+  }
+  .date {
+    color: grey;
+    font-size: medium;
+  }
+  .article-body{
+      margin-top: 20px;
+      padding: 12px;
+      width: 70%;
+  }
+}
