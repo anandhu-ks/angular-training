@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
-import { HeaderComponent } from './header/header.component';
 import { ListComponent } from './list/list.component';
+import { HeaderModule } from '../header/header.module';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
-    HeaderComponent,
     ListComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    HeaderModule
   ]
 })
 export class HomeModule { }

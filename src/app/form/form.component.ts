@@ -9,8 +9,8 @@ import { LocalDataService } from '../services/local-data.service';
 export class FormComponent implements OnInit {
 
   constructor(private _local: LocalDataService) {
-    //this.saveData();
-    this.updateData();
+    this.saveData();
+    //this.updateData();
   }
 
   ngOnInit(): void {

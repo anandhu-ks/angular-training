@@ -43,7 +43,7 @@ export class LocalDataService {
         updatedList.map((item: any) => {
           if (item.id === id) {
             item.title = title,
-            item.body = body
+              item.body = body
           }
         })
         this.article_list = updatedList;
@@ -69,7 +69,7 @@ export class LocalDataService {
     localStorage.setItem('article_list', JSON.stringify(value))
   }
 
-  
+
   //User
   saveUser(data: any) {
     return new Observable((subscribe) => {
@@ -80,10 +80,18 @@ export class LocalDataService {
       }, 3000)
     })
   }
+
+  
   //Set user
-  private set _user(value: any) {
+  private set _user(value) {
     localStorage.setItem('user', JSON.stringify(value));
 
+  }
+
+  private get _user() {
+    const user = localStorage.getItem('user');
+    if (user) return JSON.parse(user);
+    return null;
   }
 
 }

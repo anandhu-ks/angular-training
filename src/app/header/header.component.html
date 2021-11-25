@@ -1,0 +1,14 @@
+<header>
+    <div class="header-left">Logo</div>
+    <div class="header-right">
+      <ul>
+        <li *ngIf="hasRoute('/home'); else elseBlock">
+          <a routerLink="/login">Login</a>
+        </li>
+        <ng-template #elseBlock>
+          <li>admin</li>
+        </ng-template>
+      </ul>
+    </div>
+  </header>
+  

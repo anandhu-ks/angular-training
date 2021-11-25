@@ -9,7 +9,7 @@ import { LocalDataService } from '../services/local-data.service';
 export class LoginComponent implements OnInit {
 
   constructor(private _local: LocalDataService) {
-    this.logUser();
+  this.logUser();
   }
 
   ngOnInit(): void {
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   logUser() {
     const userObj = {
       name: "admin",
-      role: "1"
+      role: 1
     }
 
     this._local.saveUser(userObj).subscribe(({
