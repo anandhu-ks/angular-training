@@ -14,4 +14,11 @@
       padding: 12px;
       width: 70%;
   }
+  .icon{
+   
+    &:hover{
+      cursor: pointer;
+    }
+
+  }
 }

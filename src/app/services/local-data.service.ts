@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, subscribeOn } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LocalDataService {
   list = [];
-  constructor() { }
-
+  constructor() {}
 
   //Articles
   //get article list
@@ -16,8 +15,18 @@ export class LocalDataService {
       setTimeout(() => {
         subscribe.next(this.article_list);
         subscribe.complete();
-      }, 2000);
-    })
+      }, 1000);
+    });
+  }
+
+  getArticleById(id: number) {
+    return new Observable((subscribe) => {
+      const article = this.article_list.filter((item: any) => {
+        return item.id == id;
+      });
+      subscribe.next(article);
+      subscribe.complete();
+    });
   }
 
   //Save data to localstorage
@@ -28,11 +37,9 @@ export class LocalDataService {
         this.article_list = newList;
         subscribe.next(newList);
         subscribe.complete();
-      }, 1000)
-    })
-
+      }, 1000);
+    });
   }
-
 
   //Edit article
 
@@ -42,19 +49,17 @@ export class LocalDataService {
         const updatedList = this.article_list;
         updatedList.map((item: any) => {
           if (item.id === id) {
-            item.title = title,
-              item.body = body
+            (item.title = title), (item.body = body);
           }
-        })
+        });
         this.article_list = updatedList;
         subscribe.next(this.article_list);
         subscribe.complete();
-      }, 3000)
+      }, 3000);
     });
   }
 
-
-  //getter to get data 
+  //getter to get data
   private get article_list() {
     const data = localStorage.getItem('article_list');
     if (data) {
@@ -63,12 +68,10 @@ export class LocalDataService {
     return [];
   }
 
-
   //data setter
   private set article_list(value) {
-    localStorage.setItem('article_list', JSON.stringify(value))
+    localStorage.setItem('article_list', JSON.stringify(value));
   }
-
 
   //User
   saveUser(data: any) {
@@ -77,21 +80,40 @@ export class LocalDataService {
         this._user = data;
         subscribe.next(data);
         subscribe.complete();
-      }, 3000)
-    })
+      }, 2000);
+    });
   }
 
-  
   //Set user
   private set _user(value) {
     localStorage.setItem('user', JSON.stringify(value));
+  }
 
+  getUser() {
+    return new Observable((subscribe) => {
+      const user = this._user;
+      subscribe.next(user);
+      subscribe.complete();
+    });
+  }
+
+  setLike(id: number) {
+    return new Observable((subscribe) => {
+      const articles = this.article_list;
+      articles.map((item: any) => {
+        if (item.id == id) {
+          item.likes++;
+        }
+      });
+      this.article_list = articles;
+      subscribe.next(articles);
+      subscribe.complete();
+    });
   }
 
   private get _user() {
     const user = localStorage.getItem('user');
     if (user) return JSON.parse(user);
-    return null;
+    return '';
   }
-
 }

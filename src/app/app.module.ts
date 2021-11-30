@@ -8,17 +8,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
-
-
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
