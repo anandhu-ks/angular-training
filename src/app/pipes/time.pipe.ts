@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { compareAsc, format, formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow } from 'date-fns';
 
 @Pipe({
   name: 'time',

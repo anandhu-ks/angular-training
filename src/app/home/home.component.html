@@ -1,2 +1,30 @@
 <app-header></app-header>
-<app-list [articleList]="articleList" ></app-list>
+<div class="bg-blue-200 w-full flex items-center border-black border">
+  <div class="px-24 pb-12 pt-28">
+    <h1 class="font-sans text-7xl">
+      Medium is a place to <br />
+      write, read, and <br />
+      connect
+    </h1>
+    <h5 class="pt-5">
+      It's easy and free to post your thinking on any topic and <br />
+      connect with millions of readers.
+    </h5>
+    <button
+      class="
+        mt-5
+        bg-white
+        cursor-pointer
+        text-black
+        py-2
+        px-4
+        rounded-full
+        border border-black
+      "
+    >
+      Start Writing
+    </button>
+  </div>
+</div>
+
+<app-list [articleList]="articleList"></app-list>

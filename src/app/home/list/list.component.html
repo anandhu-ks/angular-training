@@ -1,4 +1,4 @@
-<div class="article-list">
+<!-- <div class="article-list">
   <div *ngFor="let item of articleList" class="article">
     <div class="article-header">
       <div class="article-header-left">
@@ -12,6 +12,28 @@
     <div class="description">
       {{ item.body | slice: 0:300 }}...
       <a [routerLink]="['/articles/details/', item.id]"> Read More </a>
+    </div>
+  </div>
+</div> -->
+
+<div class="ml-20 mt-10 w-1/2">
+  <div class="mb-9 p-7 rounded-lg flex" *ngFor="let item of articleList">
+    <div>
+      <p>By {{ item.author }}</p>
+      <h6 class="font-bold">{{ item.title }}</h6>
+      <p class="py-2">
+        {{ item.body | slice: 0:100 }}...<a
+          class="text-blue-400"
+          [routerLink]="['/articles/details/', item.id]"
+        >
+          Read More
+        </a>
+      </p>
+      <p class="mt-12 text-sm text-gray-500">{{ item.date | date }}</p>
+    </div>
+
+    <div>
+      <img src="https://picsum.photos/300/300" alt="" />
     </div>
   </div>
 </div>

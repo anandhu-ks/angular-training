@@ -1,11 +1,58 @@
-<header>
-  <div class="header-left">Logo</div>
-  <div class="header-right">
-    <ul>
-      <li *appIsLoggedin="'loggedIn'">Logged In</li>
-      <li *appIsLoggedin="'notLoggedIn'">
-        <a [routerLink]="['/login']">Login</a>
-      </li>
-    </ul>
+<header
+  class="
+    flex
+    place-content-center
+    fixed
+    top-0
+    z-10
+    w-full
+    bg-blue-200
+    p-5
+    border-b border-black
+    font-serif
+  "
+>
+  <div class="flex justify-between w-2/3">
+    <div>
+      <img
+        src="https://cdn1.iconfinder.com/data/icons/social-media-circle-7/512/Circled_Medium_svg5-1024.png"
+        height="50"
+        width="50"
+      />
+    </div>
+    <div>
+      <ul>
+        <li
+          class="
+            bg-green-500
+            hover:bg-blue-700
+            cursor-pointer
+            text-white
+            font-bold
+            py-2
+            px-4
+            rounded-full
+          "
+          *appIsLoggedin="'loggedIn'"
+        >
+          Logged In
+        </li>
+        <li
+          class="
+            bg-red-500
+            hover:bg-blue-700
+            cursor-pointer
+            text-white
+            font-bold
+            py-2
+            px-4
+            rounded-full
+          "
+          *appIsLoggedin="'notLoggedIn'"
+        >
+          <a [routerLink]="['/login']">Login</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </header>
